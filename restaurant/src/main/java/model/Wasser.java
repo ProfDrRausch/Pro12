@@ -1,8 +1,8 @@
 package model;
 
-public class Suppe extends Beilage {
-    public Suppe() {
-        super("Suppe");
+public class Wasser extends Getraenk {
+    public Wasser() {
+        super("Wasser");
     }
 
     @Override

@@ -1,9 +1,9 @@
 package model;
 
-public abstract class Beilage implements Produkt {
+public abstract class Getraenk implements Produkt {
     protected String name;
 
-    public Beilage(String name) {
+    public Getraenk(String name) {
         this.name = name;
     }
 

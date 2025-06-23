@@ -1,12 +1,12 @@
 package model;
 
-public class Tofu implements Gericht { 
+public class Tofu extends Basisgericht {
+    public Tofu() {
+        super("Tofu");
+    }
+
     @Override
-    public void druckeBeschreibung() { 
-        System.out.print("Tofu"); 
-    } 
-    @Override
-    public double getPreis() { 
-        return 8.50; 
-    } 
-} 
+    public double getPreis() {
+        return 8.5;
+    }
+}

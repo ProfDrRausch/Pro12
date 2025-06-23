@@ -1,0 +1,12 @@
+Garnelen=2
+Wienerschnitzel=6
+Nudeln=9
+Bratkartoffeln=8
+Hueftsteak=5
+Wasser=11
+Wein=4
+Suppe=5
+Bier=6
+Tofu=4
+Pommes=9
+Salat=6

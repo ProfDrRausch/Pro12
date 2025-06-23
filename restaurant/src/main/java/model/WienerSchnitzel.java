@@ -1,12 +1,12 @@
 package model;
 
-public class WienerSchnitzel implements Gericht { 
+public class Wienerschnitzel extends Basisgericht {
+    public Wienerschnitzel() {
+        super("Wienerschnitzel");
+    }
+
     @Override
-    public void druckeBeschreibung() { 
-        System.out.print("WienerSchnitzel"); 
-    } 
-    @Override
-    public double getPreis() { 
-        return 10.50; 
-    } 
-} 
+    public double getPreis() {
+        return 10.5;
+    }
+}

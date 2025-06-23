@@ -1,12 +1,12 @@
 package model;
 
-public class Hueftsteak implements Gericht { 
+public class Hueftsteak extends Basisgericht {
+    public Hueftsteak() {
+        super("Hueftsteak");
+    }
+
     @Override
-    public void druckeBeschreibung() { 
-        System.out.print("Hüftsteak"); 
-    } 
-    @Override
-    public double getPreis() { 
-        return 13.0; 
-    } 
-} 
+    public double getPreis() {
+        return 13.0;
+    }
+}

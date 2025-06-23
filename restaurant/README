@@ -1,0 +1,2 @@
+c:\apache-maven\bin\mvn compile
+c:\apache-maven\bin\mvn exec:java -Dexec.mainClass="controller.App_old" -Dfile.encoding=UTF-8

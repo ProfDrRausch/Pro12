@@ -1,0 +1,17 @@
+﻿[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< de.rausch:restaurant >------------------------
+[INFO] Building restaurant 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- exec:3.1.0:java (default-cli) @ restaurant ---
+Hello World!
+Euro: Ç
+Umlaute: ─ Í ▄ õ ÷ ³ ▀
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.819 s
+[INFO] Finished at: 2025-06-19T13:31:03+02:00
+[INFO] ------------------------------------------------------------------------

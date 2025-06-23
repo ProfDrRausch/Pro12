@@ -1,13 +1,12 @@
 package model;
 
-public class Garnelen implements Gericht { 
-    @Override
-    public void druckeBeschreibung() { 
-        System.out.print("Garnelen"); 
-    } 
-    @Override
-    public double getPreis() { 
-        return 13.50; 
-    } 
+public class Garnelen extends Basisgericht {
+    public Garnelen() {
+        super("Garnelen");
+    }
 
-} 
+    @Override
+    public double getPreis() {
+        return 13.5;
+    }
+}
