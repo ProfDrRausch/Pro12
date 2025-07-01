@@ -1,6 +1,5 @@
 package model;
 
-
 import java.io.*;
 import java.nio.file.*;
 import java.time.LocalDateTime;
@@ -13,6 +12,7 @@ public class VorratDatei implements Vorrat {
 
     private Map<String, Integer> vorratMap = new HashMap<>();
     private Map<String, String> produktZuKategorie = new HashMap<>();
+    private Map<String, Double> produktPreise = new HashMap<>();
 
     @Override
     public Map<String, Integer> getVorratMap() {
@@ -21,7 +21,12 @@ public class VorratDatei implements Vorrat {
 
     @Override
     public Map<String, String> getProduktZuKategorie() {
-       return produktZuKategorie;
+        return produktZuKategorie;
+    }
+
+    @Override
+    public Map<String, Double> getProduktPreise() {
+        return produktPreise;
     }
 
     @Override
@@ -35,20 +40,22 @@ public class VorratDatei implements Vorrat {
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String zeile;
             while ((zeile = reader.readLine()) != null) {
-                String[] teile = zeile.split("=");
-                if (teile.length == 2) {
-                    String[] kategorieUndName = teile[0].split(":");
-                    if (kategorieUndName.length == 2) {
-                        String kategorie = kategorieUndName[0].trim();
-                        String name = kategorieUndName[1].trim();
-                        int menge = Integer.parseInt(teile[1].trim());
+                String[] teile = zeile.split(":");
+                if (teile.length != 2) continue;
 
-                        vorratMap.put(name, menge);
-                        produktZuKategorie.put(name, kategorie);
-                    }
-                }
+                String kategorie = teile[0].trim();
+                String[] rest = teile[1].split(";");
+                if (rest.length != 3) continue;
+
+                String name = rest[0].trim();
+                int menge = Integer.parseInt(rest[1].trim());
+                double preis = Double.parseDouble(rest[2].trim());
+
+                vorratMap.put(name, menge);
+                produktZuKategorie.put(name, kategorie);
+                produktPreise.put(name, preis);
             }
-        } catch (IOException e) {
+        } catch (IOException | NumberFormatException e) {
             System.out.println("*** Fehler beim Lesen der Vorratsdatei: " + e.getMessage());
         }
     }
@@ -84,8 +91,9 @@ public class VorratDatei implements Vorrat {
                         .sorted()
                         .forEach(name -> {
                             int menge = vorratMap.getOrDefault(name, 0);
+                            double preis = produktPreise.getOrDefault(name, 0.0);
                             try {
-                                writer.write(kategorie + ":" + name + "=" + menge);
+                                writer.write(kategorie + ":" + name + ";" + menge + ";" + preis);
                                 writer.newLine();
                             } catch (IOException e) {
                                 System.out.println("*** Fehler beim Schreiben von " + name + ": " + e.getMessage());
@@ -96,5 +104,5 @@ public class VorratDatei implements Vorrat {
             System.out.println("*** Fehler beim Schreiben der Vorratsdatei: " + e.getMessage());
         }
     }
-    
 }
+

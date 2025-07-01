@@ -1,14 +1,20 @@
 package model;
 
 public abstract class Beilage implements Produkt {
-    protected String name;
+    private String name;
+    private double preis;
 
-    public Beilage(String name) {
+    public Beilage(String name, double preis) {
         this.name = name;
+        this.preis = preis; 
     }
 
     @Override
     public String getName() {
         return name;
+    }
+    @Override
+    public double getPreis() {      
+        return preis;
     }
 }

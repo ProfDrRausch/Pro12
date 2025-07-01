@@ -4,9 +4,13 @@ import java.util.Map;
 
 public interface Vorrat {
     Map<String, Integer> getVorratMap();
+
     Map<String, String> getProduktZuKategorie();
 
+    Map<String, Double> getProduktPreise();
+
     void ladeVorrat();
+
     void schreibeVorrat();
 
     default void zeigeVorrat() {
@@ -16,6 +20,7 @@ public interface Vorrat {
 
         Map<String, Integer> vorrat = getVorratMap();
         Map<String, String> produktZuKategorie = getProduktZuKategorie();
+        Map<String, Double> produktPreise = getProduktPreise();
         Map<String, java.util.List<String>> kategorien = new java.util.HashMap<>();
 
         for (String produkt : vorrat.keySet()) {
@@ -31,7 +36,8 @@ public interface Vorrat {
                             .sorted()
                             .forEach(name -> {
                                 int menge = vorrat.getOrDefault(name, 0);
-                                System.out.printf("- %-18s%4d%n", name + ":", menge);
+                                double preis = produktPreise.getOrDefault(name, 0.0);
+                                System.out.printf("- %-18s %3d Stück  %6.2f €%n", name + ":", menge, preis);
                             });
                     System.out.println();
                 });

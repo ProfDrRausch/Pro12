@@ -1,14 +1,21 @@
 package model;
 
 public abstract class Basisgericht implements Produkt {
-    protected String name;
+    private String name;
+    private double preis;
 
-    public Basisgericht(String name) {
+    public Basisgericht(String name, double preis) {
         this.name = name;
+        this.preis = preis; 
     }
 
     @Override
     public String getName() {   
         return name;
+    }
+
+    @Override
+    public double getPreis() {  
+        return preis;
     }
 }

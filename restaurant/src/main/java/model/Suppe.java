@@ -1,12 +1,7 @@
 package model;
 
 public class Suppe extends Beilage {
-    public Suppe() {
-        super("Suppe");
-    }
-
-    @Override
-    public double getPreis() {
-        return 1.5;
+    public Suppe(double preis) {
+        super("Suppe",preis);
     }
 }

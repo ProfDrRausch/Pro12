@@ -11,10 +11,12 @@ public class MenuHandler {
     private Warenkorb warenkorb;
     private Vorrat vorrat;
     private Scanner scanner = new Scanner(System.in);
+    private final ProduktFabrik produktFabrik;
 
     public MenuHandler(Vorrat vorrat, Warenkorb warenkorb) {
         this.vorrat = vorrat;
         this.warenkorb = warenkorb;
+        this.produktFabrik = new ProduktFabrik(vorrat);
     }
 
     public void start() {
@@ -65,7 +67,7 @@ public class MenuHandler {
         System.out.println("1: Garnelen | 2: Hueftsteak | 3: Tofu | 4: Wienerschnitzel");
         String eingabe = scanner.nextLine().trim();
 
-        Produkt gericht = ProduktFabrik.erstelleBasisgericht(eingabe);
+        Produkt gericht = produktFabrik.erstelleBasisgericht(eingabe);
         if (gericht != null) {
             warenkorb.setBasisgericht(gericht);
         } else {
@@ -78,7 +80,7 @@ public class MenuHandler {
         System.out.println("1: Pommes | 2: Bratkartoffeln | 3: Nudeln | 4: Salat | 5: Suppe");
 
         String eingabe = scanner.nextLine().trim();
-        Produkt beilage = ProduktFabrik.erstelleBeilage(eingabe);
+        Produkt beilage = produktFabrik.erstelleBeilage(eingabe);
 
         if (beilage != null) {
             warenkorb.addBeilage(beilage);
@@ -109,7 +111,7 @@ public class MenuHandler {
         System.out.println("1: Wasser | 2: Bier | 3: Wein");
 
         String eingabe = scanner.nextLine().trim();
-        Produkt getraenk = ProduktFabrik.erstelleGetraenk(eingabe);
+        Produkt getraenk = produktFabrik.erstelleGetraenk(eingabe);
 
         if (getraenk != null) {
             warenkorb.setGetraenk(getraenk);
@@ -117,5 +119,4 @@ public class MenuHandler {
             System.out.println("*** Ungültige Eingabe.");
         }
     }
-
 }
