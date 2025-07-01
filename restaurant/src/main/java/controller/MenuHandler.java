@@ -4,13 +4,16 @@ import java.util.Scanner;
 
 import model.Produkt;
 import model.ProduktFabrik;
+import model.Vorrat;
 import model.Warenkorb;
 
 public class MenuHandler {
     private Warenkorb warenkorb;
+    private Vorrat vorrat;
     private Scanner scanner = new Scanner(System.in);
 
-    public MenuHandler(Warenkorb warenkorb) {
+    public MenuHandler(Vorrat vorrat, Warenkorb warenkorb) {
+        this.vorrat = vorrat;
         this.warenkorb = warenkorb;
     }
 
@@ -30,12 +33,8 @@ public class MenuHandler {
                 case "2d" -> beilageEntfernen();
                 case "3a" -> getraenkWaehlen();
                 case "3d" -> warenkorb.removeGetraenk();
-                case "9" -> warenkorb.zeigeVorrat();
+                case "9" -> vorrat.zeigeVorrat();
                 case "0" -> {
-                    warenkorb.schreibeVorratInDatei();
-                    System.out.println("\nIhre endgültige Bestellung:");
-                    warenkorb.druckeWarenkorb();
-                    System.out.println("Vielen Dank - guten Appetit! 🍽️");
                     running = false;
                 }
                 default -> System.out.println("*** Ungültige Eingabe.");
