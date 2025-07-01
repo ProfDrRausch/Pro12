@@ -1,0 +1,8 @@
+<!ELEMENT vorrat (produkt+)>
+
+<!ELEMENT produkt (name, anzahl, preis)>
+<!ATTLIST produkt kategorie (Basisgericht | Beilage | Getraenk) #REQUIRED>
+
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT anzahl (#PCDATA)>
+<!ELEMENT preis (#PCDATA)>

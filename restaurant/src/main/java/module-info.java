@@ -1,3 +1,8 @@
-module com.example.test {
+
+
+module restaurant {
+    requires java.xml;
+
     requires java.logging;
-}
+
+    }
