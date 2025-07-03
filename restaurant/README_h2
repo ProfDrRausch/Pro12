@@ -1,0 +1,3 @@
+jdbc:h2:file:C:/Users/rausch/Programmieren_GitRepo/Pro12/restaurant/data/vorratdb
+
+jdbc:h2:tcp://localhost:9092/C:/Users/rausch/Programmieren_GitRepo/Pro12/restaurant/data/vorratdb

@@ -1,14 +1,14 @@
 package controller;
 
 import model.Vorrat;
-import model.VorratDatei;
-import model.VorratXML;
+import model.VorratDB;
 import model.Warenkorb;
 
 public class Main {
     public static void main(String[] args) {
         //Vorrat vorrat = new VorratDatei();
-        Vorrat vorrat = new VorratXML();
+        //Vorrat vorrat = new VorratXML();
+        Vorrat vorrat = new VorratDB();
         vorrat.ladeVorrat();
         Warenkorb warenkorb = new Warenkorb(vorrat);;
         MenuHandler menu = new MenuHandler(vorrat,warenkorb);
