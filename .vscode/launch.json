@@ -1,0 +1,46 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "MainGui",
+            "request": "launch",
+            "mainClass": "restaurant/controller.MainGui",
+            "projectName": "restaurant"
+        },
+        {
+            "type": "java",
+            "name": "MainKonsole",
+            "request": "launch",
+            "mainClass": "restaurant/controller.MainKonsole",
+            "projectName": "restaurant"
+        },
+        {
+            "type": "java",
+            "name": "Main_old",
+            "request": "launch",
+            "mainClass": "restaurant/controller.Main_old",
+            "projectName": "restaurant"
+        },
+        {
+            "type": "java",
+            "name": "EuroTest",
+            "request": "launch",
+            "mainClass": "restaurant/controller.EuroTest",
+            "projectName": "restaurant"
+        },
+        {
+            "type": "java",
+            "name": "DBTest",
+            "request": "launch",
+            "mainClass": "restaurant/controller.DBTest",
+            "projectName": "restaurant"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "restaurant/controller.Main",
+            "projectName": "restaurant"
+        }
+    ]
+}

@@ -1,2 +1,15 @@
 c:\apache-maven\bin\mvn compile
 c:\apache-maven\bin\mvn exec:java -Dexec.mainClass="controller.App_old" -Dfile.encoding=UTF-8
+
+settings.json
+
+{
+  "files.encoding": "utf8",
+  "terminal.integrated.defaultProfile.windows": "cmd-utf8",
+  "terminal.integrated.profiles.windows": {
+    "cmd-utf8": {
+      "path": "C:\\Windows\\System32\\cmd.exe",
+      "args": ["/K", "chcp 65001"]
+    }
+  }
+}

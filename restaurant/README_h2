@@ -1,3 +1,6 @@
+Der H2-Server muss über eine Powershell als Administrator gestartet werden. Ansonsten öffnet sich der Port 9092 nicht.
+
+
 jdbc:h2:file:C:/Users/rausch/Programmieren_GitRepo/Pro12/restaurant/data/vorratdb
 
 jdbc:h2:tcp://localhost:9092/C:/Users/rausch/Programmieren_GitRepo/Pro12/restaurant/data/vorratdb

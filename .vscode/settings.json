@@ -1,8 +1,10 @@
 {
-  "java.configuration.updateBuildConfiguration": "interactive",
-  "java.debug.settings.vmArgs": "-Dfile.encoding=UTF-8",
-  "terminal.integrated.fontFamily": "Fira Code, Cascadia Code, Consolas, monospace",
   "files.encoding": "utf8",
-  "terminal.integrated.defaultEncoding": "utf8",
-  "files.autoGuessEncoding": false
+  "terminal.integrated.defaultProfile.windows": "cmd-utf8",
+  "terminal.integrated.profiles.windows": {
+    "cmd-utf8": {
+      "path": "C:\\Windows\\System32\\cmd.exe",
+      "args": ["/K", "chcp 65001"]
+    }
+  }
 }

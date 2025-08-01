@@ -13,10 +13,15 @@ public interface Vorrat {
 
     void schreibeVorrat();
 
-    default void zeigeVorrat() {
-        System.out.println("========");
-        System.out.println("Vorrat");
-        System.out.println("========\n");
+    /**
+     * Gibt den Vorrat als formatierte String-Repräsentation zurück.
+     * @return String-Repräsentation des Vorrats
+     */
+    default String getVorratAsString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("========\n");
+        sb.append("Vorrat\n");
+        sb.append("========\n\n");
 
         Map<String, Integer> vorrat = getVorratMap();
         Map<String, String> produktZuKategorie = getProduktZuKategorie();
@@ -31,15 +36,21 @@ public interface Vorrat {
         kategorien.keySet().stream()
                 .sorted()
                 .forEach(kategorie -> {
-                    System.out.println(kategorie);
+                    sb.append(kategorie).append("\n");
                     kategorien.get(kategorie).stream()
                             .sorted()
                             .forEach(name -> {
                                 int menge = vorrat.getOrDefault(name, 0);
                                 double preis = produktPreise.getOrDefault(name, 0.0);
-                                System.out.printf("- %-18s %3d Stück  %6.2f €%n", name + ":", menge, preis);
+                                sb.append(String.format("- %-18s %3d Stück  %6.2f €%n", name + ":", menge, preis));
                             });
-                    System.out.println();
+                    sb.append("\n");
                 });
+        return sb.toString();
+    }
+
+    // Die bestehende Methode für die Konsolenausgabe
+    default void zeigeVorrat() {
+        System.out.println(getVorratAsString());
     }
 }
